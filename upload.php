@@ -15,7 +15,7 @@ if(isset($_POST["submit"])){
             die("Connection failed: " . $db->connect_error);
         }
                 
-        $insert = $db->query("INSERT into table_image (image) VALUES ('$imgContent')");
+        $insert = $db->query("INSERT into table_image (name) VALUES ('$imgContent')");
         if($insert){
             echo "File uploaded successfully.";
         }else{

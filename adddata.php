@@ -19,8 +19,10 @@ if(isset($_POST['submit']))
     $ret=mysqli_num_rows($cq);
     if($ret==TRUE)
     {
-        echo "<center><h2 style='color:red'>Username already exists</h2></center>";
-    }
+        echo '<script language="javascript">';
+		echo 'alert("Username Already Exists");';
+		echo 'window.location.href="mainlogin.html";';
+		echo '</script>';    }
     else
     {
         $query="INSERT INTO mails VALUES('$user','$mail','$pass')";
