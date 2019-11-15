@@ -12,8 +12,10 @@ $result=mysqli_query($conn,$sql) or die(mysqli_error($conn));
 if(isset($_POST['submit']))
 {
     $user=$_POST['username'];
+    $name=$_POST['name'];
     $mail=$_POST['email'];
     $pass=$_POST['password'];
+    $phone=$_POST['phone'];
     $q="SELECT username from mails where username='$user'";
     $cq=mysqli_query($conn,$q) or die(mysqli_error($conn));
     $ret=mysqli_num_rows($cq);
@@ -25,7 +27,7 @@ if(isset($_POST['submit']))
 		echo '</script>';    }
     else
     {
-        $query="INSERT INTO mails VALUES('$user','$mail','$pass')";
+        $query="INSERT INTO mails VALUES('$user','$name','$pass','$mail','$phone')";
         mysqli_query($conn,$query) or die(mysqli_error($conn));
         echo "<center><h2 style='color:green'>Details Saved!</h2></center>";
     }
