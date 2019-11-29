@@ -12,20 +12,52 @@
       $del=$_POST['del'];
       $pname=$_POST['pname'];
       $query = "INSERT INTO tbl_images(name,cust_name,descrip,price,phone,email,area,del_code,product_name) VALUES ('$file','$cust_name','$descrip','$price','$phone','$email','$area','$del','$pname')";  
-      if(mysqli_query($connect, $query))  
+      if(mysqli_query($connect, $query))
       {  
            echo '<script>alert("Image Inserted into Database")</script>';  
       }  
  }  
  ?>  
  <!DOCTYPE html>  
- <html>  
-      <head>   
+ <html>
+      <head>
+          <style>.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+</style> 
            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />  
            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
-      </head>  
-      <body>  
+      </head>
+      <body>
+          <div class="topnav">
+            <a href="">Home</a>
+            <a href="mainlogin.html">Logout</a>
+            <a href="delete.php">Delete Items</a>
+            <a href="update.html">Update items</a>
+
+          </div>
+          
            <br /><br />
            <div class="container">
            <form action="search.php" method="post">
@@ -34,7 +66,6 @@
             </form> 
                 <form method="post" enctype="multipart/form-data">
                 <p align="right">
-                    <h4>Add your items here</h4>
                     <div class="container">
         <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add Items</button>
         <div class="modal fade" id="myModal" role="dialog">
@@ -144,11 +175,7 @@
             </div>
         </div>
     </div> 
-    <h4>Delete Items</h4>
-    <form action="delete.php">
-    <button type="submit" class="btn btn-info btn-lg">Delete Items</button>
-</form>
-                </p>
+                
                 </form>  
                 <table class="table table-bordered">  
                      <tr>  

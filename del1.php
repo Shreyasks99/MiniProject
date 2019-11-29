@@ -13,8 +13,7 @@ if(isset($_POST['name']) && isset($_POST['email']))
 {
     $name=$_POST['name'];
     $email=$_POST['email'];
-    $code=$_POST['code'];
-    $sel="Select * from tbl_images where product_name='$name' and email='$email' and del_code='$code'";
+    $sel="Select * from tbl_images where product_name='$name' and email='$email'";
     $cq=mysqli_query($conn,$sel) or die(mysqli_error($conn));
     $ret=mysqli_num_rows($cq);
     if($ret==false)
@@ -23,9 +22,9 @@ if(isset($_POST['name']) && isset($_POST['email']))
     }
     else
     {
-        $sel="delete from tbl_images where product_name='$name' and email='$email' and del_code='$code'";
+        $sel="delete from tbl_images where product_name='$name' and email='$email'";
         $cq=mysqli_query($conn,$sel)or die(mysqli_error($conn));
-        header('Location:index1.php');
+        header('Location:afteradmin.html');
     }
 }
 Mysqli_close($conn);
@@ -94,11 +93,6 @@ input[type=submit]:hover {
 </style>
 </head>
 <body>
-<div class="topnav">
-  <a  href="">Home</a>
-  <a href="mainlogin.html">Logout</a>
-</div>
-
 <h3>Delete items</h3>
 
 <div class="container">
@@ -107,10 +101,7 @@ input[type=submit]:hover {
     <input type="text" id="fname" name="name" placeholder="Your Product name..">
 
     <label for="email">Email</label>
-    <input type="text" id="lname" name="email" placeholder="Your email..">
-
-    <label for="code">Code</label>
-    <input type="text" id="lname" name="code" placeholder="Your code  ..">
+    <input type="text" id="lname" name="email" placeholder="Your email.">
 
     <input type="submit" value="Submit">
   </form>
